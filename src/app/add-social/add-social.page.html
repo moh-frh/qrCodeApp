@@ -1,0 +1,30 @@
+<ion-header> </ion-header>
+
+<ion-content class="ion-padding">
+    <div class="title">
+        <b>
+            <h1>
+                <ion-text color="primary">{{socialName}}</ion-text>
+            </h1> 
+        </b>
+    </div>
+
+    <ion-list lines="full" class="ion-no-margin">
+        <ion-item>
+            <ion-label position="floating" color='primary'>{{socialName}} Name</ion-label>
+            <ion-input color='secondary'></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <!-- <ion-input [(ngModel)]="game.description" placeholder="description" class="primary-input"></ion-input> -->
+
+    <div class="ion-margin-top">
+        <ion-button expand="block" color="primary">Create</ion-button>
+    </div>
+
+    <div class="ion-margin-top ion-text-center">
+        <a (click)="dismiss()">
+            <ion-text color="primary">Cancel</ion-text>
+        </a>
+    </div>
+</ion-content>

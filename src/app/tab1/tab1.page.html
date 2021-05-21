@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Tab 1
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="center">
+        <qrcode qrdata="myAngularxQrCode" [size]="250" [level]="'M'"></qrcode>
+    </div>
+
+    <div>
+        <ion-button (click)="scancode()">Click</ion-button>
+
+    </div>
+</ion-content>

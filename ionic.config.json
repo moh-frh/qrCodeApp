@@ -1,0 +1,8 @@
+{
+  "name": "qr-social",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

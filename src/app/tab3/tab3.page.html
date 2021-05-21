@@ -1,0 +1,107 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Social Medias
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+    <!-- <ion-button (click)="addItem2('moh-frh')">add</ion-button> -->
+    <!-- <ion-button (click)='getItems()'>get</ion-button> -->
+    <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list>
+            <ion-fab-button color="success" (click)="addSocial('Whatsapp')">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="secondary" (click)="addSocial('Twitter')">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="danger" (click)="addSocial('Instagram')">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="warning" (click)="addSocial('Snapshat')">
+                <ion-icon name="logo-snapchat"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="dark" (click)="addSocial('Tiktok')">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="primary" (click)="addSocial('Facebook')">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+
+        </ion-fab-list>
+    </ion-fab>
+
+    <!-- <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+            <ion-fab-button color="light">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="light">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="light">
+                <ion-icon name="logo-vimeo"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab> -->
+
+
+    <ion-list>
+        <ion-item style="margin: 10%;">
+            <ion-avatar slot="start">
+                <img src="assets/instagram.png" />
+            </ion-avatar>
+            <ion-label>
+                <h2>Instagram</h2>
+                <p>#MohamedFerhi</p>
+            </ion-label>
+        </ion-item>
+        <ion-item style="margin: 10%;">
+            <ion-avatar slot="start">
+                <img src="assets/twitter.png" />
+            </ion-avatar>
+            <ion-label>
+                <h2>Twitter</h2>
+                <p>#MohamedFerhi</p>
+            </ion-label>
+        </ion-item>
+        <ion-item style="margin: 10%;">
+            <ion-avatar slot="start">
+                <img src="assets/facebook.png" />
+            </ion-avatar>
+            <ion-label>
+                <h2>Facebook</h2>
+                <p>/MohamedFerhi</p>
+            </ion-label>
+        </ion-item>
+        <ion-item style="margin: 10%;">
+            <ion-avatar slot="start">
+                <img src="assets/snapchat.png" />
+            </ion-avatar>
+            <ion-label>
+                <h2>Snapshat</h2>
+                <p>#MohamedFerhi</p>
+            </ion-label>
+        </ion-item>
+        <ion-item style="margin: 10%;">
+            <ion-avatar slot="start">
+                <img src="assets/tik-tok.png" />
+            </ion-avatar>
+            <ion-label>
+                <h2>Tiktok</h2>
+                <p>#MohamedFerhi</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+
+
+</ion-content>
