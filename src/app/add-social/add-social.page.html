@@ -12,14 +12,14 @@
     <ion-list lines="full" class="ion-no-margin">
         <ion-item>
             <ion-label position="floating" color='primary'>{{socialName}} Name</ion-label>
-            <ion-input color='secondary'></ion-input>
+            <ion-input [(ngModel)]="social" color='secondary'></ion-input>
         </ion-item>
     </ion-list>
 
     <!-- <ion-input [(ngModel)]="game.description" placeholder="description" class="primary-input"></ion-input> -->
 
     <div class="ion-margin-top">
-        <ion-button expand="block" color="primary">Create</ion-button>
+        <ion-button expand="block" color="primary" (click)="addSocial(this.socialName, social)">Create</ion-button>
     </div>
 
     <div class="ion-margin-top ion-text-center">

@@ -6,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 import {Plugins} from '@capacitor/core'
 import { v4 as uuid } from 'uuid';
 import { AddSocialPage } from '../add-social/add-social.page';
+import { StorageService } from '../service/storage.service';
 
 const {Storage} = Plugins;
 
@@ -16,55 +17,25 @@ const {Storage} = Plugins;
 })
 export class Tab3Page {
 
-  // newItem: Item = <Item>{};
-  // listItems: Item[]
+  allSocials: any = []
 
   constructor(
     public modalCtrl: ModalController ,
-    // private storage: StorageService
+    public storageService: StorageService
   ) {
+    this.getSocials()
+  }
+
+  ngOnInit(){
     
   }
 
-  //create
-  // async addItem2(item){
-  //   await this.storage.set('name', 'Mr. Ionitron');
-  // }
-  async addItem(){
-    const item = JSON.stringify([
-      {
-        id: uuid(),
-        name: 'mohamed',
-        social: 'facebook'
-      },
-      {
-        id: uuid(),
-        name: 'fouaz',
-        social: 'youtube'
-      },
-      {
-        id: uuid(),
-        name: 'ferhi',
-        social: 'instgram'
-      },
-  ])
-
-  await Storage.set({
-    key: 'products',
-    value: item
-  })
-  }
-
-  // async getItems(){
-  //   const name = await this.storage.get('name');
-  //   console.log(name);
-  // }
-
    //load
-   loadIem(){
-    // this.storageService.getItem().then(item => {
-    //   console.log(item);
-    // })
+   async getSocials(){
+     console.log('get all socials -------------------------');
+     this.allSocials = await this.storageService.getAllSocials() 
+     console.log(this.allSocials)
+     console.log('-----------------------------------------');
    }
 
   async addSocial(name) {
@@ -82,9 +53,14 @@ export class Tab3Page {
     return await modal.present();
   }
 
-  
-   
+  async deleteSocial(key){    
+    await this.storageService.deleteSocial(key);
 
-   
-
+    this.getSocials()
+  }
+  async editSocial(){
+    console.log('edit social');
+    
+    
+  }
 }

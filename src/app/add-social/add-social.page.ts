@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController, LoadingController, NavController } from '@ionic/angular';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-add-social',
@@ -9,17 +10,26 @@ import { ModalController, ToastController, LoadingController, NavController } fr
 export class AddSocialPage implements OnInit {
 
   socialName;
+  social;
 
   constructor(
     public modalController: ModalController,
     private toastCtrl: ToastController,
-    private loadingCtrl: LoadingController,
-    private navCtrl: NavController,
+    public storageService: StorageService
     ) {
+      this.storageService.getAllSocials()
     }
 
-
   ngOnInit() {}
+
+  async addSocial(key, value){
+    await this.storageService.addSocial(key, value)
+
+    this.storageService.getAllSocials()
+    console.log('added social');
+
+    this.dismiss()
+  }
 
   async dismiss() {
     return await this.modalController.dismiss();
