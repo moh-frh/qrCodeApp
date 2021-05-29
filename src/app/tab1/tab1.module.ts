@@ -16,8 +16,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-
-    QRCodeModule,
+    
+    QRCodeModule
     
   ],
   declarations: [Tab1Page]
