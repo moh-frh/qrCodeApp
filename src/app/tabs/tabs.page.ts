@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(
+    public storageService: StorageService
+  ) {}
+
+  synchronizeQrCode(){
+    console.log('synch');
+    console.log(this.storageService.getAllSocials())
+    
+  }
 
 }

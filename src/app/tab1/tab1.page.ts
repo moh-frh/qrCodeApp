@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { AlertController } from '@ionic/angular';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,10 +12,17 @@ export class Tab1Page {
 
   constructor(
     private qrScanner: QRScanner,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public storageService: StorageService
   ) {
     // this.scancode();
+    console.log('tab1');
+    
+    console.log(this.storageService.getAllSocials());
+    
   }
+
+  
 
   scancode() {
     console.log("scan code entered");

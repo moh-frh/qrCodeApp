@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController, ToastController, LoadingController, NavController } from '@ionic/angular';
 import { StorageService } from '../service/storage.service';
 
@@ -12,23 +13,37 @@ export class AddSocialPage implements OnInit {
   socialName;
   social;
 
+  allSocials: any = []
+
+
   constructor(
     public modalController: ModalController,
     private toastCtrl: ToastController,
-    public storageService: StorageService
+    public storageService: StorageService,
+    private router: Router
     ) {
-      this.storageService.getAllSocials()
+      // this.storageService.getAllSocials()
+    this.getSocials()
     }
 
   ngOnInit() {}
 
+  // ngOnChanges(){
+  //   this.getSocials()
+  // }
+
+  //load
+  async getSocials(){
+    this.allSocials = await this.storageService.getAllSocials() 
+  }
+
   async addSocial(key, value){
     await this.storageService.addSocial(key, value)
 
-    this.storageService.getAllSocials()
-    console.log('added social');
-
     this.dismiss()
+    this.getSocials()
+
+    this.router.navigate(['tab3'])
   }
 
   async dismiss() {

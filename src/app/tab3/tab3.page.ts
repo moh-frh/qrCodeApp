@@ -1,8 +1,5 @@
-// import { Item, StorageService } from './../service/storage.service';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-// import { AddSocialPage } from '../add-social/add-social.page';
-// import { StorageService } from '../service/storage.service';
 import {Plugins} from '@capacitor/core'
 import { v4 as uuid } from 'uuid';
 import { AddSocialPage } from '../add-social/add-social.page';
@@ -23,19 +20,18 @@ export class Tab3Page {
     public modalCtrl: ModalController ,
     public storageService: StorageService
   ) {
-    this.getSocials()
+    // this.getSocials()
   }
 
-  ngOnInit(){
-    
-  }
+  ngOnInit(){}
+
+  ionViewWillEnter() {
+    this.getSocials()
+}
 
    //load
    async getSocials(){
-     console.log('get all socials -------------------------');
      this.allSocials = await this.storageService.getAllSocials() 
-     console.log(this.allSocials)
-     console.log('-----------------------------------------');
    }
 
   async addSocial(name) {
