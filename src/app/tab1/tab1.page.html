@@ -1,18 +1,44 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
+<ion-header>
+    <ion-toolbar color="primary">
         <ion-title>
-            Tab 1
+            My QR Social
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-toolbar color="light">
+
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon name="flash-outline" slot="icon-only" ios="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="">
+            <ion-button>
+                <ion-icon name="image-outline" slot="icon-only" ios="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon name="sync-outline" slot="icon-only" ios="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <div class="text-center">
+        align the QR code within the frame to scan
+    </div>
+
+    <!-- <div style="padding-top: -100px;"> -->
     <div class="center">
-        <qrcode qrdata="myAngularxQrCode" [size]="250" [level]="'M'"></qrcode>
+        <div *ngIf="allSocials">
+            <qrcode [qrdata]="allSocials" [scale]="1" [width]="256"></qrcode>
+        </div>
     </div>
 
-    <div>
-        <ion-button (click)="scancode()">Click</ion-button>
-
-    </div>
+    <ion-button class="show-hide" size="large" color="light">Show</ion-button>
+    <!-- </div> -->
 </ion-content>

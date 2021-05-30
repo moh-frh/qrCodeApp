@@ -12,11 +12,18 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import {HttpClientModule} from '@angular/common/http'
 
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
+  imports: [BrowserModule, 
+            IonicModule.forRoot(), 
+            AppRoutingModule, 
+            HttpClientModule, 
+            IonicStorageModule.forRoot(),
+            QRCodeModule,
+          ],
   providers: [{ 
     provide: RouteReuseStrategy, 
     useClass: IonicRouteStrategy,

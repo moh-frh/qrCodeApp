@@ -43,7 +43,7 @@ export class AddSocialPage implements OnInit {
     this.dismiss()
     this.getSocials()
 
-    this.router.navigate(['tab3'])
+    this.router.navigate(['tabs/tab3'])
   }
 
   async dismiss() {

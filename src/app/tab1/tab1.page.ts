@@ -10,55 +10,22 @@ import { StorageService } from '../service/storage.service';
 })
 export class Tab1Page {
 
-  constructor(
-    private qrScanner: QRScanner,
-    public alertController: AlertController,
-    public storageService: StorageService
-  ) {
-    // this.scancode();
-    console.log('tab1');
+  allSocials: any;
+  allSocialsStringified: any;
+
+  constructor(private storageService: StorageService) {
+
+    //load
+    this.allSocials =  "this.getSocial()"
+
+    // this.allSocialsStringified = JSON.stringify(this.allSocials)
     
-    console.log(this.storageService.getAllSocials());
-    
+    console.log('all socials');
+    console.log(this.getSocial());
   }
 
-  
-
-  scancode() {
-    console.log("scan code entered");
-    
-    this.qrScanner.prepare()
-    .then((status: QRScannerStatus) => {
-    console.log("then");
-
-       if (status.authorized) {
-         // camera permission was granted
-    console.log("if true");
-
-  
-         // start scanning
-         let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-    console.log("let true");
-
-           console.log('Scanned something', text);
-  
-           this.qrScanner.hide(); // hide camera preview
-           scanSub.unsubscribe(); // stop scanning
-         });
-  
-       } else if (status.denied) {
-    console.log("else if");
-
-         // camera permission was permanently denied
-         // you must use QRScanner.openSettings() method to guide the user to the settings page
-         // then they can grant the permission from there
-       } else {
-    console.log("else");
-
-         // permission was denied, but not permanently. You can ask for permission again at a later time.
-       }
-    })
-    .catch((e: any) => console.log('Error is', e));
+  async getSocial(){
+    return await this.storageService.getAllSocials()
   }
 
 }

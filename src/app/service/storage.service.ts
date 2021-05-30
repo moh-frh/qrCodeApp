@@ -20,8 +20,8 @@ export class StorageService {
     await this.storage.create();
   }
 
-  addSocial(key, value){
-    this.storage.set(key, value);
+  async addSocial(key, value){
+    await this.storage.set(key, value);
   }
 
   async deleteSocial(key){
@@ -30,14 +30,14 @@ export class StorageService {
     await this.storage.remove(key);
   }
   updateSocial(){
-
+    console.log('update item');
   }
   async getAllSocials(){
 
     const socials: any = []
 
     this.storage.forEach((key, value, index) => {
-      console.log(key, '---', value);
+      // console.log(key, '---', value);
       socials.push({'key': key, 'value': value})
     });
     return socials
