@@ -35,7 +35,7 @@
     <!-- <div style="padding-top: -100px;"> -->
     <div class="center">
         <div *ngIf="allSocials">
-            <qrcode [qrdata]="allSocials" [scale]="1" [width]="256"></qrcode>
+            <qrcode [qrdata]="qrcodeData" [scale]="1" [width]="256" [allowEmptyString]="true"></qrcode>
         </div>
     </div>
 

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, ToastController, LoadingController, NavController } from '@ionic/angular';
+import {
+  ModalController,
+  ToastController,
+  LoadingController,
+  NavController,
+} from '@ionic/angular';
 import { StorageService } from '../service/storage.service';
 
 @Component({
@@ -9,22 +14,19 @@ import { StorageService } from '../service/storage.service';
   styleUrls: ['./add-social.page.scss'],
 })
 export class AddSocialPage implements OnInit {
-
   socialName;
   social;
 
-  allSocials: any = []
-
+  allSocials: any = [];
 
   constructor(
     public modalController: ModalController,
     private toastCtrl: ToastController,
     public storageService: StorageService,
     private router: Router
-    ) {
-      // this.storageService.getAllSocials()
-    this.getSocials()
-    }
+  ) {
+    // this.storageService.getAllSocials()
+  }
 
   ngOnInit() {}
 
@@ -32,18 +34,11 @@ export class AddSocialPage implements OnInit {
   //   this.getSocials()
   // }
 
-  //load
-  async getSocials(){
-    this.allSocials = await this.storageService.getAllSocials() 
-  }
+  async addSocial(key, value) {
+    await this.storageService.addSocial(key, value);
 
-  async addSocial(key, value){
-    await this.storageService.addSocial(key, value)
-
-    this.dismiss()
-    this.getSocials()
-
-    this.router.navigate(['tabs/tab3'])
+    await this.modalController.dismiss(null, 'added');
+    this.router.navigate(['tabs/tab3']);
   }
 
   async dismiss() {
@@ -80,8 +75,8 @@ export class AddSocialPage implements OnInit {
     this.toastCtrl
       .create({
         message,
-        duration: 3000
+        duration: 3000,
       })
-      .then(toastData => toastData.present());
+      .then((toastData) => toastData.present());
   }
 }
