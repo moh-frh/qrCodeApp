@@ -18,6 +18,8 @@ export class Tab2Page {
   scanActive = false;
   scanResult = null;
 
+  arrayOfObjects: any[];
+
   @ViewChild('video', {static: false}) video: ElementRef;
   @ViewChild('canvas', {static: false}) canvas: ElementRef;
   loading: HTMLIonLoadingElement
@@ -90,12 +92,19 @@ export class Tab2Page {
         inversionAttempts: 'dontInvert'
       })
 
-      console.log('code: ', code);
+      // console.log('code: ', code);
 
       if(code){
         this.scanActive = false;
         this.scanResult = code.data;
-        this.showQrToast();
+
+        this.arrayOfObjects = JSON.parse(this.scanResult);
+
+        // this.arrayOfObjects.map(
+        //   e => this.showQrToast("value"),this.showQrToast("value")
+        //   )
+        
+        
       }else{
         if(this.scanActive){
           requestAnimationFrame(this.scan.bind(this))
@@ -116,9 +125,9 @@ export class Tab2Page {
     this.scanActive = false
   };
 
-  async showQrToast(){
+  async showQrToast(value){
     const toast = await this.toastCtrl.create({
-      message: `open ${this.scanResult}?`,
+      message: `open ${value}?`,
       position: 'top',
       buttons: [{
         text: 'Open',
@@ -130,6 +139,10 @@ export class Tab2Page {
     toast.present()
   }
 
+  navigateToSocial(url){
+    window.open(url, '_system', 'location=yes')
+    
+  }
   
 
   
