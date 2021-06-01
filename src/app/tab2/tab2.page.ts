@@ -103,6 +103,11 @@ export class Tab2Page {
         // this.arrayOfObjects.map(
         //   e => this.showQrToast("value"),this.showQrToast("value")
         //   )
+
+        console.log('this.arrayOfObjects');
+        console.log(this.arrayOfObjects);
+        
+        
         
         
       }else{
@@ -139,8 +144,22 @@ export class Tab2Page {
     toast.present()
   }
 
-  navigateToSocial(url){
-    window.open(url, '_system', 'location=yes')
+  navigateToSocial(socialType, socialName){
+    switch(socialType){
+      case 'Facebook': window.open('https://web.facebook.com/'+socialName, '_system', 'location=yes');
+                        break;
+      case 'Instagram': window.open('https://www.instagram.com/'+socialName, '_system', 'location=yes');
+                        break;
+      case 'Twitter': window.open('https://twitter.com/'+socialName, '_system', 'location=yes');
+                        break;
+      // case 'facebook': window.open('https://web.facebook.com/moh.ferhi.97', '_system', 'location=yes');
+      //                   break;
+      // case 'facebook': window.open('https://web.facebook.com/moh.ferhi.97', '_system', 'location=yes');
+      //                   break;
+      // case 'facebook': window.open('https://web.facebook.com/moh.ferhi.97', '_system', 'location=yes');
+      //                   break;
+    }
+    // window.open('https://web.facebook.com/moh.ferhi.97', '_system', 'location=yes')
     
   }
   

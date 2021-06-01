@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="light">
         <ion-title>
             QR Social Scanner
         </ion-title>
@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+
     <!-- Fallback for iOS PWA -->
     <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
 
@@ -39,12 +40,12 @@
     </ion-button>
 
     <div *ngFor="let res of arrayOfObjects ">
-        <ion-card *ngIf="scanResult" (click)="navigateToSocial(res.value)">
+        <ion-card *ngIf="scanResult" (click)="navigateToSocial(res.key, res.value)">
             <ion-card-header>
-                <ion-card-title>{{ res.social }}</ion-card-title>
+                <ion-card-title>{{ res.key }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-                {{ res.name }}
+                {{ res.value }}
             </ion-card-content>
         </ion-card>
     </div>

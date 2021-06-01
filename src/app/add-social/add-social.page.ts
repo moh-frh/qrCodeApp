@@ -25,14 +25,9 @@ export class AddSocialPage implements OnInit {
     public storageService: StorageService,
     private router: Router
   ) {
-    // this.storageService.getAllSocials()
   }
 
   ngOnInit() {}
-
-  // ngOnChanges(){
-  //   this.getSocials()
-  // }
 
   async addSocial(key, value) {
     await this.storageService.addSocial(key, value);
