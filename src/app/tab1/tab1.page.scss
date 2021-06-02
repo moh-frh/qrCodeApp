@@ -4,6 +4,12 @@
     justify-content: center;
     margin: 100px;
     // border-style: dashed;
+    // filter: blur(4px);
+    // position: absolute;
+}
+
+.blurOn {
+    filter: blur(4px);
 }
 
 .text-center {

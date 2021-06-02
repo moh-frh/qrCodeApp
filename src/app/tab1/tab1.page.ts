@@ -11,13 +11,19 @@ import { Subject } from 'rxjs';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page implements OnDestroy {
+  isBlur = true;
   allSocials: any;
   allSocialsStringified: any = [];
   d: any[];
   qrcodeData: string = '';
 
+  blur: string = 'blur(4px)'
+  toggleButton: string;
+
   private _unsubscribeAll: Subject<any> = new Subject();
   constructor(private storageService: StorageService) {
+  this.toggleButton = 'show'
+
     this.storageService.onStorageChanged
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((socials) => {
@@ -29,6 +35,12 @@ export class Tab1Page implements OnDestroy {
     // this.allSocialsStringified = JSON.stringify(this.allSocials)
 
     // console.log(this.getSocial());
+  }
+
+  toggleBlur(){
+    this.isBlur = !this.isBlur
+
+    this.isBlur ? this.toggleButton = 'Show' : this.toggleButton = 'Hide' 
   }
 
   async ngOnInit() {  }
