@@ -42,6 +42,20 @@ export class Tab2Page {
     }
   }
 
+  async ngOnInit()
+  {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment' }
+    });
+    this.videoElement.srcObject = stream;
+    this.videoElement.setAttribute('playsinline', true);
+    this.videoElement.play();
+
+    this.loading = await this.loadingCtrl.create({})
+    await this.loading.present()
+    requestAnimationFrame(this.scan.bind(this))
+  }
+
   ngAfterViewInit(){
     this.videoElement = this.video.nativeElement;
     this.canvasElement = this.canvas.nativeElement;

@@ -14,6 +14,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { QRCodeModule } from 'angularx-qrcode';
 
+import { Camera } from '@ionic-native/camera/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,7 +31,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     useClass: IonicRouteStrategy,
    },
    QRScanner,
-   Storage
+   Storage,
+   Camera,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,14 +1,11 @@
 <ion-header>
     <ion-toolbar color="light">
-        <ion-title>
-            My QR Social
-        </ion-title>
+        <ion-title> My QR Social </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-toolbar color="primary">
-
         <ion-buttons slot="start">
             <ion-button>
                 <ion-icon name="contrast-outline"></ion-icon>
@@ -16,31 +13,46 @@
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button (click)="addPhoto()">
                 <ion-icon name="image-outline" slot="icon-only" ios="ellipsis-horizontal"></ion-icon>
             </ion-button>
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-button>
-                <ion-icon name="expand-outline"></ion-icon>
-            </ion-button>
+            <div *ngIf="isNormalSize; else elseBlock">
+                <ion-button (click)="expandQrCode()">
+                    <ion-icon name="expand-outline"></ion-icon>
+                </ion-button>
+            </div>
+            <ng-template #elseBlock>
+                <ion-button (click)="contractQrCode()">
+                    <ion-icon name="contract-outline"></ion-icon>
+                </ion-button>
+            </ng-template>
         </ion-buttons>
     </ion-toolbar>
 
-    <div class="text-center">
-        align the QR code within the frame to scan
-    </div>
+    <div class="text-center">align the QR code within the frame to scan</div>
 
     <!-- <div style="padding-top: -100px;"> -->
     <div class="center" [ngClass]="{'blurOn' : isBlur, '': !isBlur}">
-        <div *ngIf="allSocials">
-            <qrcode [qrdata]="qrcodeData" [scale]="1" [width]="256" [allowEmptyString]="true"></qrcode>
+        <!-- <div *ngIf="allSocials">
+            <qrcode [qrdata]="qrcodeData" [scale]="1" [width]="width" [allowEmptyString]="true"></qrcode>
+        </div> -->
+
+        <div class="flex">
+            <div class="img-box">
+                <div *ngIf="isPhotoImported; else elseBlock2">
+                    <img [src]="image" />
+                </div>
+                <ng-template #elseBlock2>
+                    <qrcode [qrdata]="qrcodeData" [scale]="1" [width]="width" [allowEmptyString]="true"></qrcode>
+                </ng-template>
+            </div>
         </div>
     </div>
 
     <!-- <ion-button class="show-hide" size="large" color="light">Show</ion-button> -->
     <ion-button (click)="toggleBlur()" expand="block" class="show-hide">{{toggleButton}}</ion-button>
     <!-- </div> -->
-
 </ion-content>
